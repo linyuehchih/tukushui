@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- 私測期間：不讓搜尋引擎收錄；正式公開時拿掉這行 -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>小人物吐苦水｜花蓮市大小事</title>
+  <meta name="description" content="花蓮市大小事，吐完苦水一起想辦法。匿名發文、留言給解方、按「我也遇過」。">
+  <meta property="og:title" content="小人物吐苦水">
+  <meta property="og:description" content="花蓮市大小事，吐完苦水一起想辦法">
+  <meta property="og:image" content="img/xiaorenwu.jpg">
+  <link rel="icon" href="img/xiaorenwu.jpg">
+  <link rel="stylesheet" href="style.css?v=c59e1bc4">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#/">
+      <img src="img/xiaorenwu.jpg" alt="小人物" width="44" height="44">
+      <span>
+        <strong>小人物吐苦水</strong>
+        <small>花蓮市大小事，吐完苦水一起想辦法</small>
+      </span>
+    </a>
+  </header>
+
+  <main id="app" aria-live="polite"></main>
+
+  <a class="fab" href="#/new" id="fab">✍️ 我要吐苦水</a>
+
+  <footer class="foot">
+    <a href="#/rules">版規</a> ·
+    急事請打 <a href="tel:1999">1999</a>、<a href="tel:110">110</a>、<a href="tel:119">119</a><br>
+    由小人物 林岳志 維護
+  </footer>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="config.js?v=288246b4"></script>
+  <script src="app.js?v=9e297910"></script>
+</body>
+</html>
