@@ -132,6 +132,7 @@
 
   // ---------- 首頁 ----------
   const filters = store.get('filters', { sort: 'new', cat: '', area: '' });
+  if (filters.cat && !C.categories.some(c => c.id === filters.cat)) filters.cat = ''; // 舊分類已改名
   async function pageList() {
     fab.hidden = false;
     const listEl = h('div', {});
@@ -208,6 +209,9 @@
     body.value = draft.body || '';
     const saveDraft = () => store.set('draft', { cat: catSel.value, village: vilSel.value, body: body.value });
     [catSel, vilSel].forEach(el => el.addEventListener('change', saveDraft));
+    const catHint = h('p', { class: 'hint' });
+    const showCatHint = () => { const c = C.categories.find(x => x.id === catSel.value); catHint.textContent = c ? c.hint : '不知道選哪個？選「其他」也可以。'; };
+    catSel.addEventListener('change', showCatHint); showCatHint();
     body.addEventListener('input', saveDraft);
 
     let photoBlob = null;
@@ -278,7 +282,7 @@
     } },
       h('h1', {}, '✍️ 我要吐苦水'),
       h('p', { class: 'hint' }, '不用註冊、匿名發文，只會顯示「花蓮市民 #編號」。'),
-      h('label', { class: 'field' }, '分類', catSel),
+      h('label', { class: 'field' }, '分類', catSel), catHint,
       h('label', { class: 'field' }, '地區', vilSel),
       h('label', { class: 'field', for: 'body' }, '想說什麼'),
       body, counterFor(body, C.postMax),
@@ -443,7 +447,7 @@
     render(h('section', { class: 'card rules' },
       h('h1', {}, '📜 版規'),
       h('ol', {},
-        h('li', {}, h('b', {}, '對事不對人：'), '可以罵路燈、罵水溝、罵制度，不要點名罵特定的人（包括公務員、民代、鄰居）。'),
+        h('li', {}, h('b', {}, '對事不對人：'), '可以罵路燈、罵水溝、罵制度，不要點名罵特定的人（包括公務員、民代、鄰居）。對公所服務不滿，請描述事情經過，不要寫人名或外號。'),
         h('li', {}, h('b', {}, '不造謠：'), '沒確認的事請寫「聽說」「我看到」，不要寫成事實。'),
         h('li', {}, h('b', {}, '不貼個資：'), '不要寫電話、地址門牌、車牌、別人的全名；照片不要拍到別人的臉或車牌。'),
         h('li', {}, h('b', {}, '歡迎給解方：'), '留言可以是「我也遇過」，更歡迎「我試過這個辦法」「可以打這個專線」。'),

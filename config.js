@@ -3,15 +3,16 @@ window.TKS_CONFIG = {
   supabaseUrl: 'https://auheyogdyhamgewxpuwh.supabase.co',
   supabaseKey: 'sb_publishable_NOGZ9l-2r5vY8GxHY_G-1w_KS0gIv1O',
 
+  // 2026-11-27 依市長信箱 1,918 件（2023 年後）分析，岳志選定 7 大項＋其他
   categories: [
-    { id: 'traffic', name: '交通停車', icon: '🚗' },
-    { id: 'road',    name: '路面坑洞', icon: '🕳️' },
-    { id: 'light',   name: '路燈',     icon: '💡' },
-    { id: 'env',     name: '垃圾與環境', icon: '🗑️' },
-    { id: 'drain',   name: '排水溝',   icon: '🌧️' },
-    { id: 'noise',   name: '噪音',     icon: '📢' },
-    { id: 'park',    name: '公園與設施', icon: '🌳' },
-    { id: 'other',   name: '其他',     icon: '💬' }
+    { id: 'traffic', name: '停車與交通', icon: '🚗', hint: '例：違停、路霸佔道、停車位、紅綠燈秒數、路口、標線、反射鏡、公車' },
+    { id: 'road',    name: '道路、人行道、路燈、水溝', icon: '🛣️', hint: '例：路面坑洞、道路施工、人行道破損、路燈不亮、水溝不通、下雨積水' },
+    { id: 'park',    name: '公園、綠地與市容', icon: '🌳', hint: '例：遊樂設施壞掉、公廁、球場、路樹修剪、雜草、市容、活動' },
+    { id: 'env',     name: '垃圾與環境衛生', icon: '🗑️', hint: '例：垃圾車時間、資源回收、亂丟垃圾、廢棄車、蚊蟲老鼠、空汙' },
+    { id: 'life',    name: '噪音、動物與生活安全', icon: '🔊', hint: '例：噪音、流浪狗、治安、違建' },
+    { id: 'welfare', name: '福利與銀髮照顧', icon: '🧓', hint: '例：補助申請、長輩照顧、身障、育兒、急難救助' },
+    { id: 'service', name: '公所服務', icon: '🏛️', hint: '例：申辦流程、回覆太慢、系統不好用。請描述事情經過，不要寫人名或外號' },
+    { id: 'other',   name: '其他', icon: '💬', hint: '以上都不是的，都可以放這裡' }
   ],
 
   // 花蓮市各里（依聯合里分組；上線前再對一次市公所正式名單）
